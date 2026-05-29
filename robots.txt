@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mmst.github.io/CODEX_Project_1/sitemap.xml
