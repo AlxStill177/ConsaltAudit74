@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mmst.github.io/CODEX_Project_1/sitemap.xml
+Sitemap: https://alxstill177.github.io/ConsaltAudit74/sitemap.xml

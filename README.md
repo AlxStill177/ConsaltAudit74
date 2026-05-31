@@ -16,7 +16,7 @@
 - Telegram: `https://t.me/audit_consult`
 - MAX: `https://max.ru/audit_consult`
 - Название компании: `Аудит Консалт`
-- URL сайта: `https://mmst.github.io/CODEX_Project_1/` в `index.html`, `privacy.html`, `robots.txt` и `sitemap.xml`
+- URL сайта: `https://alxstill177.github.io/ConsaltAudit74/` в `index.html`, `privacy.html`, `robots.txt` и `sitemap.xml`
 
 ## SEO
 
