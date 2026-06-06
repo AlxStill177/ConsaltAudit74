@@ -1,0 +1,9 @@
+{
+  "name": "consalt-audit-landing",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Static landing page for an audit and accounting consulting company.",
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
