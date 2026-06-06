@@ -150,23 +150,32 @@ textarea {
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: calc(100svh - 78px);
-  padding: 86px max(5vw, calc((100vw - var(--max-width)) / 2)) 72px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.98fr) minmax(360px, 0.86fr);
+  gap: clamp(32px, 5vw, 68px);
+  align-items: center;
+  min-height: min(560px, calc(100svh - 210px));
+  padding: clamp(26px, 3.3vw, 36px) max(5vw, calc((100vw - var(--max-width)) / 2));
   overflow: hidden;
   background:
     linear-gradient(90deg, var(--paper) 0%, var(--paper) 52%, #dfe9d3 52%, #dfe9d3 100%);
 }
 
 .hero-bg {
-  position: absolute;
-  top: 54px;
-  right: max(5vw, calc((100vw - var(--max-width)) / 2));
-  bottom: 58px;
-  width: min(44vw, 520px);
-  z-index: -1;
+  position: relative;
+  grid-column: 2;
+  grid-row: 1;
+  top: auto;
+  right: auto;
+  bottom: auto;
+  width: 100%;
+  height: clamp(300px, 34vw, 380px);
+  z-index: 0;
   background-image: url("assets/hero-audit-consulting.png");
-  background-size: cover;
+  background-color: var(--surface);
+  background-size: contain;
   background-position: center;
+  background-repeat: no-repeat;
   border: 10px solid var(--surface);
   border-radius: 8px;
   box-shadow: var(--shadow);
@@ -185,8 +194,10 @@ textarea {
 }
 
 .hero-content {
+  grid-column: 1;
+  grid-row: 1;
   max-width: 620px;
-  padding-top: 38px;
+  padding-top: 0;
 }
 
 .eyebrow {
@@ -214,7 +225,7 @@ h3 {
 
 h1 {
   max-width: 660px;
-  font-size: clamp(2.4rem, 5vw, 4.75rem);
+  font-size: clamp(2.25rem, 4.05vw, 3.8rem);
 }
 
 h2 {
@@ -227,7 +238,7 @@ h3 {
 
 .hero-text {
   max-width: 580px;
-  margin: 24px 0 0;
+  margin: 18px 0 0;
   color: var(--muted);
   font-size: 1.17rem;
 }
@@ -236,7 +247,7 @@ h3 {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 34px;
+  margin-top: 24px;
 }
 
 .button {
@@ -280,13 +291,13 @@ h3 {
   grid-template-columns: repeat(3, 1fr);
   gap: 1px;
   max-width: var(--max-width);
-  margin: -38px auto 0;
+  margin: 0 auto;
   padding: 0 5vw;
   background: transparent;
 }
 
 .trust-band div {
-  padding: 28px;
+  padding: 20px 22px;
   background: var(--surface);
   border: 1px solid var(--line);
   box-shadow: var(--shadow-soft);
@@ -303,13 +314,13 @@ h3 {
 .trust-band strong {
   display: block;
   color: var(--green-dark);
-  font-size: 2.4rem;
+  font-size: 2.08rem;
   line-height: 1;
 }
 
 .trust-band span {
   display: block;
-  margin-top: 10px;
+  margin-top: 7px;
   color: var(--muted);
   font-weight: 700;
 }
@@ -701,22 +712,20 @@ button.contact-card {
 
 @media (max-width: 1080px) {
   .hero {
-    display: flex;
-    flex-direction: column;
+    grid-template-columns: 1fr;
+    gap: 30px;
     min-height: auto;
-    padding-bottom: 96px;
+    padding-top: 54px;
+    padding-bottom: 58px;
     background: var(--paper);
   }
 
   .hero-bg {
-    position: relative;
+    grid-column: 1;
+    grid-row: auto;
     order: 2;
-    right: auto;
-    bottom: auto;
-    top: auto;
-    width: 100%;
-    height: 340px;
-    margin-top: 44px;
+    height: min(320px, 48vw);
+    margin-top: 0;
   }
 
   .hero::before {
@@ -724,6 +733,8 @@ button.contact-card {
   }
 
   .hero-content {
+    grid-column: 1;
+    grid-row: auto;
     order: 1;
     max-width: 760px;
     padding-top: 0;
@@ -781,21 +792,44 @@ button.contact-card {
   }
 
   .hero {
-    padding-top: 56px;
-    padding-bottom: 68px;
+    gap: 18px;
+    padding-top: 22px;
+    padding-bottom: 22px;
   }
 
   .hero-bg {
-    height: 260px;
+    height: 100px;
     border-width: 6px;
   }
 
+  h1 {
+    font-size: clamp(1.72rem, 6.8vw, 1.96rem);
+  }
+
+  h2 {
+    font-size: clamp(1.8rem, 7vw, 2.2rem);
+  }
+
   .hero-text {
-    font-size: 1rem;
+    font-size: 0.91rem;
+    line-height: 1.44;
+  }
+
+  .hero-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 22px;
   }
 
   .button {
-    width: 100%;
+    width: auto;
+    min-height: 46px;
+    padding: 11px 14px;
+  }
+
+  .button.primary {
+    grid-column: 1 / -1;
   }
 
   .trust-band {
@@ -854,5 +888,29 @@ button.contact-card {
 
   .privacy-nav a {
     background: transparent;
+  }
+}
+
+@media (min-width: 430px) and (max-width: 720px) {
+  .trust-band {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .trust-band div,
+  .trust-band div:first-child,
+  .trust-band div:last-child {
+    padding: 14px 12px;
+    border-radius: 8px;
+  }
+
+  .trust-band strong {
+    font-size: 1.55rem;
+  }
+
+  .trust-band span {
+    margin-top: 6px;
+    font-size: 0.76rem;
+    line-height: 1.28;
   }
 }
