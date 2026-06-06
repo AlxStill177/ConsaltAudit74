@@ -151,34 +151,35 @@ textarea {
   position: relative;
   isolation: isolate;
   display: grid;
-  grid-template-columns: minmax(0, 0.98fr) minmax(360px, 0.86fr);
-  gap: clamp(32px, 5vw, 68px);
+  grid-template-columns: minmax(0, calc((100vw - var(--max-width)) / 2 + 56vw)) minmax(360px, 44vw);
+  gap: 0;
   align-items: center;
-  min-height: min(560px, calc(100svh - 210px));
-  padding: clamp(26px, 3.3vw, 36px) max(5vw, calc((100vw - var(--max-width)) / 2));
+  min-height: min(500px, calc(100svh - 232px));
+  padding: 0;
   overflow: hidden;
-  background:
-    linear-gradient(90deg, var(--paper) 0%, var(--paper) 52%, #dfe9d3 52%, #dfe9d3 100%);
+  background: var(--paper);
 }
 
 .hero-bg {
-  position: relative;
+  position: absolute;
   grid-column: 2;
   grid-row: 1;
+  inset: 0 0 0 auto;
   top: auto;
   right: auto;
   bottom: auto;
-  width: 100%;
-  height: clamp(300px, 34vw, 380px);
-  z-index: 0;
+  width: 44vw;
+  min-width: 420px;
+  height: 100%;
+  z-index: -1;
   background-image: url("assets/hero-audit-consulting.png");
-  background-color: var(--surface);
-  background-size: contain;
+  background-color: #dfe9d3;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  border: 10px solid var(--surface);
-  border-radius: 8px;
-  box-shadow: var(--shadow);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .hero::before {
@@ -197,7 +198,8 @@ textarea {
   grid-column: 1;
   grid-row: 1;
   max-width: 620px;
-  padding-top: 0;
+  margin-left: max(5vw, calc((100vw - var(--max-width)) / 2));
+  padding: clamp(24px, 3.3vw, 40px) 56px clamp(24px, 3.3vw, 40px) 0;
 }
 
 .eyebrow {
@@ -225,7 +227,7 @@ h3 {
 
 h1 {
   max-width: 660px;
-  font-size: clamp(2.25rem, 4.05vw, 3.8rem);
+  font-size: clamp(2.2rem, 3.72vw, 3.55rem);
 }
 
 h2 {
@@ -721,9 +723,13 @@ button.contact-card {
   }
 
   .hero-bg {
+    position: relative;
     grid-column: 1;
     grid-row: auto;
     order: 2;
+    inset: auto;
+    width: 100%;
+    min-width: 0;
     height: min(320px, 48vw);
     margin-top: 0;
   }
@@ -737,7 +743,8 @@ button.contact-card {
     grid-row: auto;
     order: 1;
     max-width: 760px;
-    padding-top: 0;
+    margin-left: max(5vw, calc((100vw - var(--max-width)) / 2));
+    padding: 0 5vw 0 0;
   }
 }
 
@@ -792,14 +799,13 @@ button.contact-card {
   }
 
   .hero {
-    gap: 18px;
-    padding-top: 22px;
-    padding-bottom: 22px;
+    gap: 14px;
+    padding-top: 16px;
+    padding-bottom: 16px;
   }
 
   .hero-bg {
-    height: 100px;
-    border-width: 6px;
+    height: 112px;
   }
 
   h1 {
