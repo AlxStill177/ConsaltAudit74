@@ -76,31 +76,11 @@ textarea {
   min-width: 0;
 }
 
-.brand-mark {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  flex: 0 0 auto;
-  color: var(--white);
-  background: var(--teal);
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-weight: 700;
-}
-
-.brand strong,
-.brand small {
+.brand-logo {
   display: block;
-}
-
-.brand strong {
-  font-size: 1rem;
-}
-
-.brand small {
-  color: var(--muted);
-  font-size: 0.78rem;
+  width: clamp(180px, 22vw, 270px);
+  max-height: 52px;
+  object-fit: contain;
 }
 
 .site-nav {
